@@ -1,0 +1,28 @@
+.container-from {
+    width: 258px;
+    padding: 4px 6px;
+    background: linear-gradient(180deg, #D0A2FF 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 5px;
+    p {
+        margin: 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #000000;
+    }
+}
+
+.container-to {
+    width: 258px;
+    padding: 4px 6px;
+    background: linear-gradient(180deg, #FFA2A2 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 5px;
+    p {
+        margin: 0;
+        text-align: right;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #000000;
+    }
+}
