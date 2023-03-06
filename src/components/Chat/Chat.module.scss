@@ -1,0 +1,19 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .chat{
+        width: 400px;
+        height: 600px;
+        overflow-x: auto;
+        padding: 5px;
+        list-style-type: none;
+        li{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+        }
+    }
+}

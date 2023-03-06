@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import { ChatPage } from './pages/ChatPage/ChatPage';
 
 function App() {
   return (
-    <div className='text'>
-     <h1>hello</h1>
+    <div>
+      <ChatPage/>
     </div>
   );
 }

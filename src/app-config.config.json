@@ -1,0 +1,5 @@
+{
+    "webSocket": {
+        "connect": "ws://localhost:5000/chat"
+    }
+}
