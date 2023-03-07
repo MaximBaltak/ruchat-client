@@ -3,6 +3,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 920px) {
+     flex-flow: column;
+    }
     .chat{
         width: 400px;
         height: 600px;

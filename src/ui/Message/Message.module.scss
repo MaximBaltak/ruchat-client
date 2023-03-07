@@ -4,10 +4,12 @@
     background: linear-gradient(180deg, #D0A2FF 0%, rgba(255, 255, 255, 0) 100%);
     border-radius: 5px;
     p {
+        word-wrap: break-word;
         margin: 0;
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
+        width: 100%;
         color: #000000;
     }
 }

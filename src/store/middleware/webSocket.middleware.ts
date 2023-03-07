@@ -16,10 +16,10 @@ export const webSocketMiddleware: Middleware<{}, AppState> = store => next => ac
     const messagesState: MessagesState = store.getState().messages
     if (webSocketState.connect === typeConnect.Disconnected && !socket) {
         socket = io(appConfig.webSocket.connect)
-        socket.on('connect',() =>{
+        socket.on('connect', () => {
             console.log("Вы успешно подключились к чату")
         })
-        socket.on('connect_error',() =>{
+        socket.on('connect_error', () => {
             console.log("Вы не подключены")
         })
         socket.on('message', (message) => {
@@ -29,7 +29,7 @@ export const webSocketMiddleware: Middleware<{}, AppState> = store => next => ac
         })
 
     } else if (webSocketState.connect === typeConnect.Connected && socket) {
-        if (action.type === 'webSocket/send' && messagesState.inputMessage) {
+        if (action.type === 'webSocket/send' && /\S/ig.test(messagesState.inputMessage)) {
             const message: MessageI = {
                 id: v4(),
                 socketId: socket.id,
@@ -37,7 +37,7 @@ export const webSocketMiddleware: Middleware<{}, AppState> = store => next => ac
                 isFrom: true
             }
             socket.emit('message', message)
-            store.dispatch(changeInputMessage({body: ''}))
+            store.dispatch(changeInputMessage({ body: '' }))
         }
     }
 
