@@ -7,14 +7,14 @@ interface MessageProps {
 const Message: FC<MessageProps> = ({ message }) => {
     if (message.isFrom) {
         return (
-            <div className={styles['container-from']}>
-                <p>{message.body}</p>
+            <div role='generic' className={styles['container-from']}>
+                <p role='paragraph'>{message.body}</p>
             </div>
         )
     } else {
         return (
-            <div className={styles['container-to']}>
-                <p>{message.body}</p>
+            <div role='generic' className={styles['container-to']}>
+                <p role='paragraph'>{message.body}</p>
             </div>
         )
     }
