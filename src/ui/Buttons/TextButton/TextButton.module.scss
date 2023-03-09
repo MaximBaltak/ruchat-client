@@ -1,0 +1,13 @@
+.textButton {
+    display: block;
+    outline: none;
+    border: none;
+    background: none;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        transform: scale(0.9);
+    }
+}

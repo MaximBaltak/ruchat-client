@@ -1,5 +1,5 @@
 import React, {KeyboardEvent} from 'react'
-import { Textarea } from '../../ui/Textarea/Textarea'
+import { Textarea } from '../../ui/Inputs/Textarea/Textarea'
 import SendIcon from '@mui/icons-material/Send';
 import styles from './ChatSend.module.scss'
 import { useAppSelector } from '../../hooks/useAppSelector';
