@@ -1,0 +1,15 @@
+.inputFile{
+    position: absolute;
+    opacity: 0;
+}
+.file{
+    z-index: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    border-radius: 100%;
+    border: 1px solid rgba(157, 157, 157, 0.31);
+}
