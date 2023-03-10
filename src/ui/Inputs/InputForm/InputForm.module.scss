@@ -1,3 +1,11 @@
+.wrapper{
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+}
 .input {
     z-index: 1;
     padding: 5px;
@@ -11,6 +19,7 @@
     font-weight: 400;
     font-size: 16px;
     color: #000000;
+   
 }
 
 .rigth {
@@ -24,4 +33,13 @@
         opacity: 0.5;
     }
     color: white;
+}
+.required{
+    margin: 0;
+    position: absolute;
+    display: block;
+    font-weight: 300;
+    font-size: 12px;
+    color: #5e0000;
+    transform: translateX(5px) translateY(29px);
 }

@@ -24,12 +24,15 @@ export const SignIn = () => {
                     onChange={() => { }}
                     status={statusInput.Normal}
                     value={''}
-                    placeholder='Почта' />
+                    placeholder='Почта' 
+                    required={true}
+                    />
                 <PasswordInputForm
                     onChange={() => { }}
                     status={statusInput.Normal}
                     value={''}
                     placeholder='Пароль'
+                    required={true}
                 />
                 <ErrorText text='ошибка' />
                 <div className={style.background}></div>

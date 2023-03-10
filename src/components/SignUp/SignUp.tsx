@@ -26,18 +26,21 @@ export const SignUp = () => {
                     onChange={() => { }}
                     status={statusInput.Rigth}
                     value={''}
-                    placeholder='Имя' />
+                    placeholder='Имя'
+                    required={true} />
                 <PasswordInputForm
                     onChange={() => { }}
                     status={statusInput.Error}
                     value={'ццццццц'}
                     placeholder='Пароль'
+                    required={true}
                 />
                 <InputForm
                     onChange={() => { }}
                     status={statusInput.Normal}
                     value={''}
-                    placeholder='Почта' />
+                    placeholder='email'
+                    required={true} />
                 <ErrorText text='ошибка' />
                 <div className={style.background}></div>
             </div>

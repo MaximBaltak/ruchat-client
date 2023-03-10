@@ -11,11 +11,11 @@ function App() {
   return (
     <div className='app'>
       {/*<ChatPage/>*/}
-      {/*<AuthPage/> */}
+      <AuthPage/> 
       {/*<ResetPage/>*/}
       {/*<ConfirmPage/> */}
       {/*<ConfirmedEmailPage/> */}
-      <NotFoundPage/>
+      {/*<NotFoundPage/>*/}
     </div>
   );
 }

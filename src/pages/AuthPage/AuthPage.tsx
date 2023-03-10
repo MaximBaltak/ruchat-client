@@ -7,8 +7,8 @@ export const AuthPage = () => {
   return (
     <div className={style.pageAuth}>
         <HeaderAuth/>
-        {/*<SignUp/>*/}
-        <SignIn/>
+        <SignUp/>
+        {/* <SignIn/>*/}
     </div>
   )
 }

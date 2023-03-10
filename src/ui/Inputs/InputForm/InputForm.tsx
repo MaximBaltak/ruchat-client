@@ -8,7 +8,8 @@ interface InputFromProps {
     placeholder: string,
     width?: string,
     height?: string,
-    fontSize?: string
+    fontSize?: string,
+    required?: boolean
 }
 export const InputForm: FC<InputFromProps> = ({
     onChange,
@@ -17,30 +18,40 @@ export const InputForm: FC<InputFromProps> = ({
     placeholder,
     width,
     height,
+    required = false,
     fontSize }) => {
     if (status === statusInput.Error) {
-        return <input
-            className={[style.input, style.error].join(' ')}
-            value={value}
-            placeholder={placeholder}
-            style={{ width, height, fontSize }}
-            onChange={(e) => onChange(e.target.value)}
-            type="text" />
+        return <div className={style.wrapper}>
+            <input
+                className={[style.input, style.error].join(' ')}
+                value={value}
+                placeholder={placeholder}
+                style={{ width, height, fontSize }}
+                onChange={(e) => onChange(e.target.value)}
+                type="text" />
+            {required ? <p className={style.required}>Обязательное</p> : null}
+        </div>
     } else if (status === statusInput.Rigth) {
-        return <input
-            className={[style.input, style.rigth].join(' ')}
-            value={value}
-            placeholder={placeholder}
-            style={{ width, height, fontSize }}
-            onChange={(e) => onChange(e.target.value)}
-            type="text" />
+        return <div className={style.wrapper}>
+            <input
+                className={[style.input, style.rigth].join(' ')}
+                value={value}
+                placeholder={placeholder}
+                style={{ width, height, fontSize }}
+                onChange={(e) => onChange(e.target.value)}
+                type="text" />
+            {required ? <p className={style.required}>Обязательное</p> : null}
+        </div>
     } else {
-        return <input
-            className={style.input}
-            value={value}
-            placeholder={placeholder}
-            style={{ width, height, fontSize }}
-            onChange={(e) => onChange(e.target.value)}
-            type="text" />
+        return <div className={style.wrapper}>
+            <input
+                className={style.input}
+                value={value}
+                placeholder={placeholder}
+                style={{ width, height, fontSize }}
+                onChange={(e) => onChange(e.target.value)}
+                type="text" />
+            {required ? <p className={style.required}>Обязательное</p> : null}
+        </div>
     }
 }

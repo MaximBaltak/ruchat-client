@@ -8,7 +8,8 @@ interface PasseordInputFromProps {
     placeholder: string,
     width?: string,
     height?: string,
-    fontSize?: string
+    fontSize?: string,
+    required?: boolean
 }
 export const PasswordInputForm: FC<PasseordInputFromProps> = ({
     onChange,
@@ -17,6 +18,7 @@ export const PasswordInputForm: FC<PasseordInputFromProps> = ({
     placeholder,
     width,
     height,
+    required = false,
     fontSize }) => {
       const [textButton, setTextButton] = useState<string>('Показать')
       const [isHide, setIsHide] = useState<boolean>(true)
@@ -38,6 +40,7 @@ export const PasswordInputForm: FC<PasseordInputFromProps> = ({
             style={{ width, height, fontSize }}
             onChange={(e) => onChange(e.target.value)}
             type={isHide ? 'password': 'text'} />
+            { required ? <p className={style.required}>Обязательное</p>: null}
             <p onClick={toggle} className={style.toggle}>{textButton}</p> 
         </div>
     } else if (status === statusInput.Rigth) {
@@ -49,6 +52,7 @@ export const PasswordInputForm: FC<PasseordInputFromProps> = ({
             style={{ width, height, fontSize }}
             onChange={(e) => onChange(e.target.value)}
             type={isHide ? 'password': 'text'} />
+            { required ? <p className={style.required}>Обязательное</p>: null}
             <p onClick={toggle} className={style.toggle}>{textButton}</p>
         </div>
     } else {
@@ -60,6 +64,7 @@ export const PasswordInputForm: FC<PasseordInputFromProps> = ({
             style={{ width, height, fontSize }}
             onChange={(e) => onChange(e.target.value)}
             type={isHide ? 'password': 'text'} />
+            { required ? <p className={style.required}>Обязательное</p>: null}
             <p onClick={toggle} className={style.toggle}>{textButton}</p>
         </div>
     }
