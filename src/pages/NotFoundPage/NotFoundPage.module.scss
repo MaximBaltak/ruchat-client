@@ -1,0 +1,27 @@
+.notFoundPage {
+    height: 100%;
+    width: 100%;
+    background-image: url('./../../assets/img/authorization-background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.desc {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: column;
+    flex-wrap: wrap;
+    width: 500px;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 50px;
+    color: #FFFFFF;
+
+    @media screen and (max-width: 580px) {
+        width: 95%;
+        font-size: 30px;
+    }
+}
