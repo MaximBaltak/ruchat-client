@@ -5,5 +5,5 @@ interface ErrorTextProps {
     fontSize?: string
 }
 export const ErrorText: FC<ErrorTextProps> = ({ text, fontSize }) => {
-    return <p className={style.error} style={{ fontSize }}>{text}</p>
+    return <p role='paragraph' className={style.error} style={{ fontSize }}>{text}</p>
 }

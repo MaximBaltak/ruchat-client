@@ -19,6 +19,7 @@ export const ButtonSubmit: FC<ButtonSubmitProps> = ({
     fontSize
 }) => {
     return <button
+        role='submit'
         className={style.button}
         style={{ background, width, height, color, fontSize }}
         onClick={click}>{text}</button>

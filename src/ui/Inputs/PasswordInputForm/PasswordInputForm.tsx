@@ -34,38 +34,41 @@ export const PasswordInputForm: FC<PasseordInputFromProps> = ({
     if (status === statusInput.Error) {
         return <div className={style.wrapper}>
           <input
+            role="input"
             className={[style.input, style.error].join(' ')}
             value={value}
             placeholder={placeholder}
             style={{ width, height, fontSize }}
             onChange={(e) => onChange(e.target.value)}
             type={isHide ? 'password': 'text'} />
-            { required ? <p className={style.required}>Обязательное</p>: null}
-            <p onClick={toggle} className={style.toggle}>{textButton}</p> 
+            { required ? <p role='paragraph-required' className={style.required}>Обязательное</p>: null}
+            <p role='paragraph-toggle' onClick={toggle} className={style.toggle}>{textButton}</p> 
         </div>
     } else if (status === statusInput.Rigth) {
         return <div className={style.wrapper}>
           <input
+            role="input"
             className={[style.input, style.rigth].join(' ')}
             value={value}
             placeholder={placeholder}
             style={{ width, height, fontSize }}
             onChange={(e) => onChange(e.target.value)}
             type={isHide ? 'password': 'text'} />
-            { required ? <p className={style.required}>Обязательное</p>: null}
-            <p onClick={toggle} className={style.toggle}>{textButton}</p>
+            { required ? <p role='paragraph-required' className={style.required}>Обязательное</p>: null}
+            <p role='paragraph-toggle' onClick={toggle} className={style.toggle}>{textButton}</p>
         </div>
     } else {
         return <div className={style.wrapper}>
           <input
+            role='input'
             className={style.input}
             value={value}
             placeholder={placeholder}
             style={{ width, height, fontSize }}
             onChange={(e) => onChange(e.target.value)}
             type={isHide ? 'password': 'text'} />
-            { required ? <p className={style.required}>Обязательное</p>: null}
-            <p onClick={toggle} className={style.toggle}>{textButton}</p>
+            { required ? <p role='paragraph-required' className={style.required}>Обязательное</p>: null}
+            <p role='paragraph-toggle' onClick={toggle} className={style.toggle}>{textButton}</p>
         </div>
     }
 }

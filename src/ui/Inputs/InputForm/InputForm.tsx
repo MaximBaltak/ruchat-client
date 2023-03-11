@@ -23,35 +23,38 @@ export const InputForm: FC<InputFromProps> = ({
     if (status === statusInput.Error) {
         return <div className={style.wrapper}>
             <input
+                role='input'
                 className={[style.input, style.error].join(' ')}
                 value={value}
                 placeholder={placeholder}
                 style={{ width, height, fontSize }}
                 onChange={(e) => onChange(e.target.value)}
                 type="text" />
-            {required ? <p className={style.required}>Обязательное</p> : null}
+            {required ? <p role='paragraph-required' className={style.required}>Обязательное</p> : null}
         </div>
     } else if (status === statusInput.Rigth) {
         return <div className={style.wrapper}>
             <input
+                role='input'
                 className={[style.input, style.rigth].join(' ')}
                 value={value}
                 placeholder={placeholder}
                 style={{ width, height, fontSize }}
                 onChange={(e) => onChange(e.target.value)}
                 type="text" />
-            {required ? <p className={style.required}>Обязательное</p> : null}
+            {required ? <p role='paragraph-required' className={style.required}>Обязательное</p> : null}
         </div>
     } else {
         return <div className={style.wrapper}>
             <input
+                role='input'
                 className={style.input}
                 value={value}
                 placeholder={placeholder}
                 style={{ width, height, fontSize }}
                 onChange={(e) => onChange(e.target.value)}
                 type="text" />
-            {required ? <p className={style.required}>Обязательное</p> : null}
+            {required ? <p role='paragraph-required' className={style.required}>Обязательное</p> : null}
         </div>
     }
 }
