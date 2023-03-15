@@ -32,10 +32,8 @@ export const ResetPassword = () => {
                     placeholder='Подтверждение пароля'
                 />
                 <ErrorText text='ошибка' />
-                <div className={style.background}></div>
             </div>
             <ButtonSubmit click={() => { }} text='Подтвердить' width='300px' />
         </Container>
     )
 }
-    

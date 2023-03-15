@@ -1,9 +1,7 @@
+@import "../../App";
 .pageAuth{
     height: 100%;
     width: 100%;
-    background-image: url('./../../assets/img/authorization-background.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background: $background-auth;
     overflow: auto;
 }

@@ -1,7 +1,8 @@
+@import "../../App";
 .error {
     z-index: 1;
     margin: 0;
     font-weight: 700;
     font-size: 16px;
-    color: #a70000;
+    color: $error ;
 }

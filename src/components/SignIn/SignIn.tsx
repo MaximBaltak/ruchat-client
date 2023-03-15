@@ -24,7 +24,7 @@ export const SignIn = () => {
                     onChange={() => { }}
                     status={statusInput.Normal}
                     value={''}
-                    placeholder='Почта' 
+                    placeholder='Почта'
                     required={true}
                     />
                 <PasswordInputForm
@@ -35,11 +35,9 @@ export const SignIn = () => {
                     required={true}
                 />
                 <ErrorText text='ошибка' />
-                <div className={style.background}></div>
             </div>
             <ButtonSubmit click={() => { }} text='Войти' width='300px' />
             <TextButton click={() => { }} text="Востановить доступ" color='white' fontSize='20px' />
         </Container>
     )
 }
-    

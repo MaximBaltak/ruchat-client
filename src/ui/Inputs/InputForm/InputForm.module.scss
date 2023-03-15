@@ -1,10 +1,15 @@
+@import "../../../App";
 .wrapper{
     z-index: 1;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  
+    @media screen and (max-width: 440px) {
+        justify-content: center;
+        width: 80%;
+    }
+
 }
 .input {
     z-index: 1;
@@ -14,25 +19,23 @@
     border: none;
     width: 230px;
     height: 28px;
-    background: linear-gradient(180deg, #FFFFFF 0%, rgba(203, 203, 203, 0) 100%);
+    background: $color-white;
     border-radius: 10px;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
-   
+    color: $text-dark;
+    @media screen and (max-width: 440px) {
+        width: 100%;
+    }
+
 }
 
 .rigth {
-    background: linear-gradient(180deg, #16FF3C 0%, rgba(203, 203, 203, 0) 100%);
+    box-shadow: 0 0 7px $right;
 }
 
 .error {
-    background: linear-gradient(180deg, #F12626 0%, rgba(203, 203, 203, 0) 100%);
-    &::placeholder{
-        color: #FFFFFF;
-        opacity: 0.5;
-    }
-    color: white;
+    box-shadow: 0 0 7px $error;
 }
 .required{
     margin: 0;
@@ -40,6 +43,10 @@
     display: block;
     font-weight: 300;
     font-size: 12px;
-    color: #5e0000;
+    color: $error;
     transform: translateX(5px) translateY(29px);
+    @media screen and (max-width: 440px) {
+        transform: translateY(29px);
+        left: 2%
+    }
 }

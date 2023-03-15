@@ -25,14 +25,14 @@ export const AvatarButton = () => {
 }
   return (
     <div style={{zIndex:1}}>
-        <input onChange={(e) =>change(e.target.files)} 
-        className={style.inputFile} 
-        id='input-file-avatar' 
+        <input onChange={(e) =>change(e.target.files)}
+        className={style.inputFile}
+        id='input-file-avatar'
         type="file"
         accept="image/png, image/jpeg"/>
         <label className={style.file} htmlFor="input-file-avatar">
-            { 
-                srcFile ?  <Avatar src={srcFile} sx={{width:'100%', height:'100%'}}/> :
+            {
+                srcFile ?  <Avatar src={srcFile} sx={{width:'100%', height:'100%',border: 'solid 1px white'}}/> :
                 <AddAPhotoIcon sx={iconStylePhotoMaterial}/>
             }
         </label>

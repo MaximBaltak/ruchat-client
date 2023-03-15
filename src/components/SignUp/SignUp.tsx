@@ -42,7 +42,6 @@ export const SignUp = () => {
                     placeholder='email'
                     required={true} />
                 <ErrorText text='ошибка' />
-                <div className={style.background}></div>
             </div>
             <ButtonSubmit click={() => { }} text='Зарегистрироваться' width='300px' />
             <TextButton click={() => { }} text="Востановить доступ" color='white' fontSize='20px' />
