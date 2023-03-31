@@ -7,7 +7,6 @@ export interface inputForm {
 }
 export interface authFormState {
     typeForm: typeForm,
-    file: Blob | '',
     inputName: inputForm,
     inputPassword: inputForm,
     inputEmail: inputForm ,

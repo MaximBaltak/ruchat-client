@@ -1,15 +1,15 @@
 import {createBrowserRouter, Navigate} from 'react-router-dom'
-import {useAuth} from "../hooks/useAuth";
+import {isAuth} from "../utils/isAuth";
 import {AuthPage} from "../pages/AuthPage/AuthPage";
 import {NotFoundPage} from "../pages/NotFoundPage/NotFoundPage";
 import {ResetPage} from "../pages/ResetPage/ResetPage";
 import {ConfirmedEmailPage} from "../pages/ConfirmedEmailPage/ConfirmedEmailPage";
 import {ConfirmPage} from "../pages/ConfirmPage/ConfirmPage";
+import {ChatPage} from "../pages/ChatPage/ChatPage";
 export const routes = createBrowserRouter([
     {
         path: '/auth',
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        element: useAuth() ? <Navigate to='/chat' replace/> : <AuthPage/>
+        element: isAuth() ? <Navigate to='/chat' replace/> : <AuthPage/>
     },
     {
         path: '/',
@@ -17,8 +17,8 @@ export const routes = createBrowserRouter([
     },
     {
         path: '/chat',
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        element: useAuth() ? <Navigate to='/chat' replace/> : <AuthPage/>
+
+        element: isAuth() ?  <ChatPage/>: <Navigate to='/auth' replace/>
     },
     {
         path: '/confirm',

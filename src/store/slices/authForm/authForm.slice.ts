@@ -8,7 +8,6 @@ import {LoginUser} from "../../../types/loginUser";
 
 const initialState : authFormState = {
     typeForm: typeForm.Registration,
-    file: '',
     inputName: {
         id: listForm.Name,
         status: statusInput.Normal,
@@ -27,15 +26,16 @@ const initialState : authFormState = {
 }
 export const registrationThunkRequest = createAsyncThunk(
     'auth/registrationThunkRequest',
-    async (_, {getState,rejectWithValue}) => {
+    async (file: Blob | '' , {getState,rejectWithValue}) => {
         const {auth} = getState() as RootState
         const formData  = new FormData()
-        formData.append('file',auth.file)
+        formData.append('file',file)
         formData.append('userName',auth.inputName.value)
         formData.append('password',auth.inputPassword.value)
         formData.append('email',auth.inputEmail.value)
         try {
-            return await api.auth.registration(formData)
+            const {data} = await api.auth.registration(formData)
+            return data
         } catch (e) {
             rejectWithValue(e)
         }
@@ -45,12 +45,13 @@ export const loginThunkRequest = createAsyncThunk(
     'auth/loginThunkRequest',
     async (_, {getState,rejectWithValue}) => {
         const {auth} = getState() as RootState
-        const data: LoginUser = {
+        const payload: LoginUser = {
             password: auth.inputPassword.value,
             email: auth.inputEmail.value
         }
         try {
-            return await api.auth.login(data)
+            const {data} =  await api.auth.login(payload)
+            return data
         } catch (e) {
             rejectWithValue(e)
         }
@@ -62,9 +63,6 @@ export const loginThunkRequest = createAsyncThunk(
     reducers: {
         toggleForm (state, action: PayloadAction<{type: typeForm}>) {
             state.typeForm = action.payload.type
-        },
-        changeFile (state, action: PayloadAction<{file: Blob}>) {
-            state.file = action.payload.file
         },
         changeUserName (state, action: PayloadAction<{value: string}>) {
             const name: string = action.payload.value
@@ -97,13 +95,14 @@ export const loginThunkRequest = createAsyncThunk(
      extraReducers: (builder) => {
         builder.addCase(registrationThunkRequest.fulfilled, (state,action) => {
             console.log(action.payload)
+            localStorage.setItem('access_token',JSON.stringify(action.payload.accessToken))
+            localStorage.setItem('refresh_token',JSON.stringify(action.payload.accessToken))
             state.inputName.value = ''
             state.inputName.status = statusInput.Normal
             state.inputPassword.value = ''
             state.inputPassword.status = statusInput.Normal
             state.inputEmail.value = ''
             state.inputEmail.status = statusInput.Normal
-            state.file = ''
 
         })
          builder.addCase(registrationThunkRequest.rejected, (state,action) => {
@@ -114,16 +113,16 @@ export const loginThunkRequest = createAsyncThunk(
              state.inputPassword.status = statusInput.Normal
              state.inputEmail.value = ''
              state.inputEmail.status = statusInput.Normal
-             state.file = ''
          })
          builder.addCase(loginThunkRequest.fulfilled, (state,action) => {
+             localStorage.setItem('access_token',JSON.stringify(action.payload.accessToken))
+             localStorage.setItem('refresh_token',JSON.stringify(action.payload.refreshToken))
              state.inputName.value = ''
              state.inputName.status = statusInput.Normal
              state.inputPassword.value = ''
              state.inputPassword.status = statusInput.Normal
              state.inputEmail.value = ''
              state.inputEmail.status = statusInput.Normal
-             state.file = ''
          })
          builder.addCase(loginThunkRequest.rejected, (state,action) => {
              state.inputName.value = ''
@@ -132,15 +131,13 @@ export const loginThunkRequest = createAsyncThunk(
              state.inputPassword.status = statusInput.Normal
              state.inputEmail.value = ''
              state.inputEmail.status = statusInput.Normal
-             state.file = ''
          })
      }
  })
  export const {
     toggleForm,
-    changeFile,
     changeUserName,
     changePassword,
-    changeEmail
+    changeEmail,
 } = AuthFormSlice.actions
  export default AuthFormSlice.reducer

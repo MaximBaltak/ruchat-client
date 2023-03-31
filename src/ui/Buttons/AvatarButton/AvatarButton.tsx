@@ -3,14 +3,16 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import style from './AvatarButton.module.scss'
 import {SxProps} from '@mui/system';
 import Avatar from '@mui/material/Avatar';
-
+interface AvatarButtonProps {
+    onSelect: (file: Blob | '') => void
+}
 const iconStylePhotoMaterial: SxProps = {
     width: 36,
     height: 36,
     opacity: 0.6,
     color: 'white'
 }
-export const AvatarButton = () => {
+export const AvatarButton: FC<AvatarButtonProps> = ({onSelect}) => {
     const [srcFile, setSrcFile] = useState<string>('')
     const change = (files: FileList | null) => {
 
@@ -20,7 +22,9 @@ export const AvatarButton = () => {
                 setSrcFile(fileReader.result as string)
             }
             fileReader.readAsDataURL(files[0] as Blob)
+            onSelect(files[0] as Blob)
         } else {
+            onSelect('')
             setSrcFile('')
         }
     }
