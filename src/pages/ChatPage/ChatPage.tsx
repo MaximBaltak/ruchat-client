@@ -5,13 +5,13 @@ import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { wsConnect } from '../../store/slices/webSocket/webSocket.slice'
 
 export const ChatPage = () => {
-    const dispacth = useAppDispatch()
+    const dispatch = useAppDispatch()
     useEffect( () => {
-        dispacth(wsConnect())
+        dispatch(wsConnect())
     },[])
     return (
         <Container maxWidth='lg'>
             <Chat/>
-        </Container>    
+        </Container>
     )
 }

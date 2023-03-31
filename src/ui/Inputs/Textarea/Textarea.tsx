@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, KeyboardEvent } from 'react'
 import styles from './Textarea.module.scss'
-interface TextareaPorps {
+interface TextareaProps {
     text: string,
     change: (value: string) => void,
     sendOnKey: (value: KeyboardEvent<HTMLTextAreaElement>)  => void
@@ -8,7 +8,7 @@ interface TextareaPorps {
     width: string,
     height: string
 }
-export const Textarea: FC<TextareaPorps> = ({ text, change, placeholder,width,height,sendOnKey }) => {
+export const Textarea: FC<TextareaProps> = ({ text, change, placeholder,width,height,sendOnKey }) => {
     return <textarea
         value={text}
         onKeyDown={sendOnKey}

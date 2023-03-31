@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import style from './PasswordInputForm.module.scss'
 import { statusInput } from '../../../types/statusInput'
-interface PasseordInputFromProps {
+interface PasswordInputFromProps {
     onChange: (value: string) => void
     status: statusInput,
     value: string,
@@ -11,7 +11,7 @@ interface PasseordInputFromProps {
     fontSize?: string,
     required?: boolean
 }
-export const PasswordInputForm: FC<PasseordInputFromProps> = ({
+export const PasswordInputForm: FC<PasswordInputFromProps> = ({
     onChange,
     status,
     value,
@@ -42,7 +42,7 @@ export const PasswordInputForm: FC<PasseordInputFromProps> = ({
             onChange={(e) => onChange(e.target.value)}
             type={isHide ? 'password': 'text'} />
             { required ? <p role='paragraph-required' className={style.required}>Обязательное</p>: null}
-            <p role='paragraph-toggle' onClick={toggle} className={style.toggle}>{textButton}</p> 
+            <p role='paragraph-toggle' onClick={toggle} className={style.toggle}>{textButton}</p>
         </div>
     } else if (status === statusInput.Rigth) {
         return <div className={style.wrapper}>
