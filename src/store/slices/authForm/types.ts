@@ -6,6 +6,8 @@ export interface inputForm {
     value:string
 }
 export interface authFormState {
+    error: string
+    submitDisabled: boolean
     typeForm: typeForm,
     inputName: inputForm,
     inputPassword: inputForm,

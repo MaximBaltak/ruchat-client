@@ -32,10 +32,12 @@
 
 .rigth {
     box-shadow: 0 0 7px $right;
+    background: #c5ffc1;
 }
 
 .error {
     box-shadow: 0 0 7px $error;
+    background: #ff8e8e;;
 }
 .required{
     margin: 0;

@@ -79,9 +79,11 @@ export const SignUp = () => {
                     value={authState.inputEmail.value}
                     placeholder='email'
                     required={true}/>
-                <ErrorText text='ошибка'/>
+                {
+                    authState.error && <ErrorText text={authState.error}/>
+                }
             </div>
-            <ButtonSubmit click={submit} text='Зарегистрироваться' width='300px'/>
+            <ButtonSubmit click={submit} disabled={authState.submitDisabled} text='Зарегистрироваться' width='300px'/>
             <TextButton click={() => {
             }} text="Востановить доступ" color='white' fontSize='20px'/>
         </Container>

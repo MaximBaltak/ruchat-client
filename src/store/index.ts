@@ -2,18 +2,18 @@ import { webSocketMiddleware } from './middleware/webSocket.middleware';
 import {
     AnyAction,
     configureStore,
-    Middleware,
-    MiddlewareArray, ThunkMiddleware
 } from "@reduxjs/toolkit";
-import { AppState } from "./types";
+import {AppMiddleware, AppState} from "./types";
 import webSocketReducer from './slices/webSocket/webSocket.slice'
 import MessagesReducer from './slices/messages/messages.slice'
 import AutFormReducer from './slices/authForm/authForm.slice'
-export const store = configureStore<AppState,AnyAction,MiddlewareArray<[ThunkMiddleware<AppState, AnyAction, undefined>,Middleware<{}, AppState>]>>({
+import UserReducer from './slices/user/user.slice'
+export const store = configureStore<AppState,AnyAction,AppMiddleware>({
     reducer: {
         webSocket: webSocketReducer,
         messages: MessagesReducer,
-        auth:  AutFormReducer
+        auth:  AutFormReducer,
+        user: UserReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(webSocketMiddleware),
     devTools: true

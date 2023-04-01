@@ -1,6 +1,5 @@
 import {Container, SxProps} from '@mui/material'
 import {statusInput} from '../../types/statusInput'
-import {AvatarButton} from '../../ui/Buttons/AvatarButton/AvatarButton'
 import {ButtonSubmit} from '../../ui/Buttons/ButtonSubmit/ButtonSubmit'
 import {TextButton} from '../../ui/Buttons/TextButton/TextButton'
 import {ErrorText} from '../../ui/ErrorText/ErrorText'
@@ -27,7 +26,6 @@ const containerStyleMaterial: SxProps = {
 
 export const SignIn = () => {
     const dispatch = useAppDispatch()
-    const navigate = useNavigate()
     const authState = useAppSelector(state => state.auth)
     const onInputPassword = (value: string) => {
         dispatch(changePassword({value}))
@@ -63,9 +61,11 @@ export const SignIn = () => {
                     placeholder='Пароль'
                     required={true}
                 />
-                <ErrorText text='ошибка'/>
+                {
+                    authState.error && <ErrorText text={authState.error}/>
+                }
             </div>
-            <ButtonSubmit click={submit} text='Войти' width='300px'/>
+            <ButtonSubmit click={submit} disabled={authState.submitDisabled} text='Войти' width='300px'/>
             <TextButton click={() => {
             }} text="Востановить доступ" color='white' fontSize='20px'/>
         </Container>

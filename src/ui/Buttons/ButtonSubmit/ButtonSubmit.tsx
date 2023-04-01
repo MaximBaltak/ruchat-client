@@ -8,6 +8,7 @@ interface ButtonSubmitProps {
     color?: string,
     height?: string,
     fontSize?: string,
+    disabled?: boolean
 }
 export const ButtonSubmit: FC<ButtonSubmitProps> = ({
     click,
@@ -16,11 +17,13 @@ export const ButtonSubmit: FC<ButtonSubmitProps> = ({
     width,
     color,
     height,
-    fontSize
+    fontSize,
+    disabled = false
 }) => {
     return <button
         role='submit'
         className={style.button}
+        disabled={disabled}
         style={{ background, width, height, color, fontSize }}
         onClick={click}>{text}</button>
 }
