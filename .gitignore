@@ -5,9 +5,9 @@
 /.pnp
 .pnp.js
 /.vscode
+/.idea
 # testing
 /coverage
-/.idea
 # production
 /build
 
